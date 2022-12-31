@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Portal;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use common\models\User;
 use Illuminate\Http\Request;
 use App\Models\NearbyProducts;
@@ -21,10 +22,10 @@ class ProductController extends Controller
         $userLang = $user->profile->lang;
         $userLat = $user->profile->lat;
 
-        $product = new NearbyProducts();
-        $product->setLang($userLang)->setLat($userLat);
+        $product = new Product();
+        //$product->setLang($userLang)->setLat($userLat);
 
 
-        return view('product/list',['products'=>$product->find()]);
+        return view('product/list',['products'=>$product->all()]);
     }
 }

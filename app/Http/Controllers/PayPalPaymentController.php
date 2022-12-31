@@ -47,7 +47,7 @@ class PayPalPaymentController extends Controller
 
         $paypalModule = new ExpressCheckout;
 
-        
+
 
         $res = $paypalModule->setExpressCheckout($product, true);
 

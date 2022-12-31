@@ -19,6 +19,12 @@
                         </div>
                     </div>
                     <div class="mt-1 text-xl font-semibold">$3.00</div>
+                    <x-responsive-nav-link :href="route('make.payment')">
+                        <x-primary-button class="ml-4" >
+                            {{ __('Buy') }}
+                        </x-primary-button>
+                    </x-responsive-nav-link>
+
                 </div>
             </div>
         </div>
