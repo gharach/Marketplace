@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Portal\ProductController;
+use App\Http\Controllers\PayPalPaymentController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,5 +31,14 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
+
+Route::get("handle-payment", [PayPalPaymentController::class, 'handlePayment'])->name("make.payment");
+
+Route::get("cancel-payment", [PayPalPaymentController::class, 'paymentCancel'])->name("cancel.payment");
+
+Route::get("payment-success", [PayPalPaymentController::class, 'paymentSuccess'])->name("success.payment");
 
 require __DIR__.'/auth.php';
