@@ -3,18 +3,18 @@
 namespace App\Models;
 
 
-use App\Models\Repositories\ProductRepositories;
+use App\Repositories\ProductRepository;
 use Illuminate\Support\Facades\DB;
 use App\Models\Product;
 
-class NearbyProducts extends ProductRepositories
+class NearbyProducts extends ProductRepository
 {
 
     private $lat;
     private $lang;
     protected $table = 'products';
 
-    public function find()
+    public function listProducts()
     {
 
         $storeIds = Store::select('id')

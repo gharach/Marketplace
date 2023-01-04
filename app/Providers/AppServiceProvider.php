@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Contracts\ProductContract;
+use App\Repositories\ProductRepository;
+use App\Models\NearbyProducts;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -13,7 +16,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        //$this->app->bind('ProductContract::class ', 'ProductRepository::class');
+        $this->app->bind(ProductContract::class , NearbyProducts::class);
     }
 
     /**
